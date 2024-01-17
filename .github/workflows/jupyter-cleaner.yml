@@ -30,7 +30,7 @@ jobs:
         run: |
             echo "Added+Modified:"
             echo "${{ steps.abc.outputs.added_modified }}"
-            for OUTPUT in $(steps.abc.outputs.added_modified)
+            for OUTPUT in ${{steps.abc.outputs.added_modified}}
             do
                 echo $OUTPUT
             done
