@@ -15,5 +15,8 @@ jobs:
           if [ -f .github/workflows/requirements.txt ]; then pip install -r .github/workflows/requirements.txt; fi
       - name: nbconvert the notebook
         run: |
-           jupyter nbconvert "Untitled.ipynb" --clear-output --to html
+           jupyter nbconvert "Untitled.ipynb" --to html
+      - name: clear notebook output
+        run: |
+           jupyter nbconvert "Untitled.ipynb" --clear-output
        
