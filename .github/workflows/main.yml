@@ -19,4 +19,9 @@ jobs:
       - name: clear notebook output
         run: |
            jupyter nbconvert "Untitled.ipynb" --clear-output
-       
+      - name: Create test file
+        run: |
+                pwd
+                ls
+                touch testfile.txt      
+                ls
