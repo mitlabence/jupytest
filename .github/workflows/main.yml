@@ -19,9 +19,12 @@ jobs:
       - name: clear notebook output
         run: |
            jupyter nbconvert "Untitled.ipynb" --clear-output
-      - name: Create test file
+      - name: Create and push test file
         run: |
                 pwd
                 ls
-                touch testfile.txt      
+                touch testfile.txt
+                git add testfile.txt
+                git commit -m "Added testfile.txt"
+                git push
                 ls
