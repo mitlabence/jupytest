@@ -33,6 +33,7 @@ jobs:
                      jupyter nbconvert "$OUTPUT" --clear-output
                     fi
             done
+            ls
       - name: Commit and push
         run: |
                 git config --global user.name github-actions
