@@ -17,4 +17,5 @@ jobs:
         run: |
            ls
            pwd
+           cd .github/workflows
            python helloworld.py
