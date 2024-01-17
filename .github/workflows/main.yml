@@ -27,7 +27,7 @@ jobs:
                 ls
                 touch testfile.txt
                 git config --global user.name "Gitbot"
-                git config --global user.email "xxx"@nothing.com"
+                git config --global user.email "xxx@nothing.com"
                 git add testfile.txt
                 git commit -m "Added testfile.txt"
                 git push
