@@ -26,9 +26,9 @@ jobs:
             echo "${{ steps.abc.outputs.added_modified }}"
             for OUTPUT in ${{steps.abc.outputs.added_modified}}
             do
-                echo $OUTPUT
                   if [ "$OUTPUT" == "*.ipynb" ]  # only try to convert notebooks
                     then
+                     echo $OUTPUT
                      jupyter nbconvert $OUTPUT --to html
                      jupyter nbconvert $OUTPUT --clear-output
                     fi
