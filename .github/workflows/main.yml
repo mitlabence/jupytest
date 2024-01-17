@@ -13,9 +13,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f .github/workflows/requirements.txt ]; then pip install -r .github/workflows/requirements.txt; fi
-      - name: Testing the project using pytest
+      - name: nbconvert the notebook
         run: |
-           ls
-           pwd
-           cd .github/workflows
-           python helloworld.py
+           jupyter nbconvert "Untitled.ipynb" --clear-output --to html
+       
