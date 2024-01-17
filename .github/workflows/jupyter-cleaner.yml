@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -21,6 +26,10 @@ jobs:
       - name: clear notebook output
         run: |
            jupyter nbconvert "Untitled.ipynb" --clear-output
+      - name: Echo added/modified files
+        run: |
+            echo "Added+Modified:"
+            echo "${{ steps.abc.outputs.added_modified }}"
       - name: Commit and push
         run: |
                 git config --global user.name github-actions
