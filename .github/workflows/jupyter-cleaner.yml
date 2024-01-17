@@ -30,6 +30,10 @@ jobs:
         run: |
             echo "Added+Modified:"
             echo "${{ steps.abc.outputs.added_modified }}"
+            for OUTPUT in {{ steps.abc.outputs.added_modified }}
+            do
+                echo $OUTPUT
+            done
       - name: Commit and push
         run: |
                 git config --global user.name github-actions
