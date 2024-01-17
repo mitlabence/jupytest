@@ -20,12 +20,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f .github/workflows/requirements-jupyter-cleaner.txt ]; then pip install -r .github/workflows/requirements-jupyter-cleaner.txt; fi
-      - name: nbconvert the notebook
-        run: |
-           jupyter nbconvert "Untitled.ipynb" --to html
-      - name: clear notebook output
-        run: |
-           jupyter nbconvert "Untitled.ipynb" --clear-output
       - name: Echo added/modified files
         run: |
             echo "Added+Modified:"
@@ -33,6 +27,11 @@ jobs:
             for OUTPUT in ${{steps.abc.outputs.added_modified}}
             do
                 echo $OUTPUT
+                  if [ "$OUTPUT" == "*.ipynb" ]  # only try to convert notebooks
+                    then
+                     jupyter nbconvert "$OUTPUT" --to html
+                     jupyter nbconvert "$OUTPUT" --clear-output
+                    fi
             done
       - name: Commit and push
         run: |
