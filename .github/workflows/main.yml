@@ -26,7 +26,5 @@ jobs:
                 pwd
                 ls
                 touch testfile.txt
-                git add testfile.txt
-                git commit -m "Added testfile.txt"
-                git push
+               
                 ls
