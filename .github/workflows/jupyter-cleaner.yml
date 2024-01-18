@@ -26,12 +26,12 @@ jobs:
             echo "${{ steps.abc.outputs.added_modified }}"
             for OUTPUT in ${{steps.abc.outputs.added_modified}}
             do
-                  if [ $OUTPUT == "*.ipynb" ]  # only try to convert notebooks
+                  if [ $OUTPUT == *.ipynb ]  # only try to convert notebooks
                     then
                      echo $OUTPUT
                      echo "converting!!!"
-                     jupyter nbconvert "$OUTPUT" --to html
-                     jupyter nbconvert "$OUTPUT" --clear-output
+                     jupyter nbconvert $OUTPUT --to html
+                     jupyter nbconvert $OUTPUT --clear-output
                     fi
             done
             echo "~~~~~~~~~~~~"
